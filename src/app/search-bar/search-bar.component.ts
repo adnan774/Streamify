@@ -8,29 +8,16 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./search-bar.component.css'],
 })
 export class SearchBarComponent implements OnInit {
-  @Input() films: any[] = []; // Receive films from parent
-  @Output() searchResults = new EventEmitter<any[]>(); // Emit filtered results
+  @Input() films: any[] = []; 
+  @Output() searchResults = new EventEmitter<any[]>(); 
 
-  searchCategory: string = 'title'; // Default search category
-  searchTerm: string = ''; // User-entered search term
+  searchCategory: string = 'title'; 
+  searchTerm: string = ''; 
   
   constructor(private http: HttpClient) {}
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
-
-  // ngOnInit() {
-  //   this.http.get<any>('http://localhost:3000/films').subscribe(
-  //     (data) => {
-  //       this.films = data.films || []; // Safely handle cases where data.films is undefined
-  //       this.filteredFilms = [...this.films]; // Initialize filteredFilms with all films
-  //       console.log('Fetched films:', this.films);
-  //     },
-  //     (error) => {
-  //       console.error('Error fetching films:', error);
-  //     }
-  //   );
-  // }
   
 
   onSearch(): void {
@@ -41,7 +28,7 @@ export class SearchBarComponent implements OnInit {
   
     let filteredFilms;
     if (!this.searchTerm.trim()) {
-      filteredFilms = this.films; // Reset to all films if search term is empty
+      filteredFilms = this.films; 
     } else {
       const searchKey = this.searchCategory.toLowerCase();
       filteredFilms = this.films.filter((film) => {
@@ -50,9 +37,9 @@ export class SearchBarComponent implements OnInit {
         } else if (searchKey === 'genre') {
           return film.Genre?.toLowerCase().includes(this.searchTerm.toLowerCase());
         } else if (searchKey === 'rating') {
-          const filmRating = parseFloat(film.imdbRating); // Convert IMDb rating to a number
-          const searchRating = parseFloat(this.searchTerm); // Convert search term to a number
-          return filmRating >= searchRating; // Match films with rating greater than or equal to the search term
+          const filmRating = parseFloat(film.imdbRating); 
+          const searchRating = parseFloat(this.searchTerm); 
+          return filmRating >= searchRating; 
         }
         return false;
       });
