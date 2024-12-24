@@ -1,0 +1,57 @@
+<div class="container d-flex justify-content-center align-items-center" style="height: 80vh;">
+  <div class="card shadow-lg" style="width: 400px;">
+    <div class="card-body">
+      <h2 class="text-center mb-4">
+        <i class="bi bi-person-plus-fill"></i> Sign Up
+      </h2>
+
+      <!-- Sign-Up Form -->
+      <form (ngSubmit)="onSignup()">
+        <!-- Username -->
+        <div class="mb-3">
+          <label for="username" class="form-label">
+            <i class="bi bi-person-fill"></i> Username
+          </label>
+          <input
+            type="text"
+            id="username"
+            class="form-control"
+            [(ngModel)]="username"
+            name="username"
+            required
+            placeholder="Choose a username"
+          />
+          <div class="invalid-feedback d-block" *ngIf="!username">
+            Please provide a valid username.
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="password" class="form-label">
+            <i class="bi bi-lock-fill"></i> Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            [(ngModel)]="password"
+            name="password"
+            required
+            placeholder="Create a password"
+          />
+          <div class="invalid-feedback d-block" *ngIf="!password">
+            Please provide a valid password.
+          </div>
+        </div>
+
+        <!-- Sign-Up Button -->
+        <div class="d-grid">
+          <button type="submit" class="btn btn-success">
+            <i class="bi bi-person-check-fill"></i> Sign Up
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

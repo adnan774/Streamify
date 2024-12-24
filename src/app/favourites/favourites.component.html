@@ -1,0 +1,46 @@
+<div class="container py-4">
+  <h2 class="text-center mb-4">
+    <i class="bi bi-heart-fill text-danger"></i> My Favourite Films
+  </h2>
+  
+  <div class="row">
+    <div *ngFor="let film of favouriteFilms" class="col-md-4 mb-4">
+      <div class="card shadow-sm">
+        <!-- Film Poster -->
+        <img 
+          [src]="film.Poster" 
+          [alt]="film.Title + ' Poster'" 
+          class="card-img-top img-fluid"
+        />
+
+        <!-- Card Body -->
+        <div class="card-body">
+          <h5 class="card-title text-truncate">{{ film.Title }}</h5>
+          <p class="card-text mb-1">
+            <strong>Genre:</strong> {{ film.Genre }}
+          </p>
+          <p class="card-text">
+            <strong>IMDb Rating:</strong> <span class="badge bg-success">{{ film.imdbRating }}</span>
+          </p>
+          <div class="d-flex justify-content-between">
+            <!-- Details Button -->
+            <a 
+              [routerLink]="['/film', film.imdbID]" 
+              class="btn btn-primary btn-sm"
+            >
+              <i class="bi bi-info-circle"></i> Details
+            </a>
+
+            <!-- Remove Button -->
+            <button 
+              class="btn btn-danger btn-sm"
+              (click)="removeFromFavourites(film)"
+            >
+              <i class="bi bi-trash3"></i> Remove
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="container d-flex justify-content-center align-items-center" style="height: 80vh;">
+  <div class="card shadow-lg" style="width: 400px;">
+    <div class="card-body">
+      <h2 class="text-center mb-4">
+        <i class="bi bi-person-circle"></i> Log In
+      </h2>
+      <!-- Error Message -->
+      <div
+        *ngIf="!loginValid"
+        class="alert alert-danger text-center p-2 mb-3"
+        role="alert"
+      >
+        <i class="bi bi-exclamation-circle"></i> The username or password was
+        not recognised
+      </div>
+
+      <!-- Login Form -->
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+        <!-- Username -->
+        <div class="mb-3">
+          <label for="username" class="form-label">
+            <i class="bi bi-person-fill"></i> Username
+          </label>
+          <input
+            type="text"
+            id="username"
+            class="form-control"
+            [(ngModel)]="username"
+            name="username"
+            required
+            placeholder="Enter your username"
+          />
+          <div class="invalid-feedback d-block" *ngIf="!loginForm.form.valid">
+            Please provide a valid username
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="password" class="form-label">
+            <i class="bi bi-lock-fill"></i> Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            [(ngModel)]="password"
+            name="password"
+            required
+            placeholder="Enter your password"
+          />
+          <div class="invalid-feedback d-block" *ngIf="!loginForm.form.valid">
+            Please provide a valid password
+          </div>
+        </div>
+
+        <!-- Login Button -->
+        <div class="d-grid">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!loginForm.form.valid"
+          >
+            <i class="bi bi-box-arrow-in-right"></i> Login
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

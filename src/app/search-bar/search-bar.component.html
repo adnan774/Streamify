@@ -1,0 +1,30 @@
+<div class="input-group mb-3" style="max-width: 600px; margin: 0 auto;">
+  <!-- Dropdown for Search Categories -->
+  <button
+    class="btn btn-outline-secondary dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    {{ searchCategory === 'title' ? 'Title' : searchCategory === 'genre' ? 'Genre' : 'IMDb Rating' }}
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item"  (click)="searchCategory = 'title'">Title</a></li>
+    <li><a class="dropdown-item"  (click)="searchCategory = 'genre'">Genre</a></li>
+    <li><a class="dropdown-item"  (click)="searchCategory = 'rating'">IMDb Rating</a></li>
+  </ul>
+
+  <!-- Search Input -->
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="searchTerm"
+    placeholder="Enter title, genre, or minimum rating..."
+    aria-label="Search term"
+  />
+
+  <!-- Search Button -->
+  <button class="btn btn-primary" type="button" (click)="onSearch()">
+    <i class="bi bi-search"></i>
+  </button>
+</div>

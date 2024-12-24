@@ -1,0 +1,12 @@
+.navbar .nav-link.active {
+    background-color: #007bff; 
+    color: white !important; 
+    border-radius: 5px; 
+    padding: 0.5rem 1rem; 
+    transition: all 0.3s ease; 
+  }
+  
+  .navbar .nav-link.active:hover {
+    background-color: #0056b3; 
+  }
+  

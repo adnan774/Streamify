@@ -1,0 +1,77 @@
+<div *ngIf="film" class="container py-5">
+  <div class="row">
+    <!-- Poster -->
+    <div class="col-md-4">
+      <img 
+        [src]="film.Poster" 
+        alt="{{ film.Title }} Poster" 
+        class="img-fluid rounded shadow"
+      />
+    </div>
+
+    <!-- Film Details -->
+    <div class="col-md-8">
+      <h1 class="mb-4">{{ film.Title }}</h1>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Year:</strong> {{ film.Year }}
+        </li>
+        <li class="list-group-item">
+          <strong>Rated:</strong> {{ film.Rated }}
+        </li>
+        <li class="list-group-item">
+          <strong>Released:</strong> {{ film.Released }}
+        </li>
+        <li class="list-group-item">
+          <strong>Runtime:</strong> {{ film.Runtime }}
+        </li>
+        <li class="list-group-item">
+          <strong>Genre:</strong> {{ film.Genre }}
+        </li>
+        <li class="list-group-item">
+          <strong>Director:</strong> {{ film.Director }}
+        </li>
+        <li class="list-group-item">
+          <strong>Actors:</strong> {{ film.Actors }}
+        </li>
+        <li class="list-group-item">
+          <strong>Plot:</strong> {{ film.Plot }}
+        </li>
+        <li class="list-group-item">
+          <strong>Language:</strong> {{ film.Language }}
+        </li>
+        <li class="list-group-item">
+          <strong>Country:</strong> {{ film.Country }}
+        </li>
+        <li class="list-group-item">
+          <strong>Awards:</strong> {{ film.Awards }}
+        </li>
+        <li class="list-group-item">
+          <strong> IMDb Rating:</strong> 
+          <span class="badge bg-success">{{ film.imdbRating }}</span>
+        </li>
+      </ul>
+
+      <!-- Back Button -->
+      <div class="mt-4">
+        <button class="btn btn-primary" routerLink="/">
+          <i class="bi bi-arrow-left"></i> Back to List
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gallery -->
+  <div class="mt-5">
+    <h4 class="mb-4"><i class="bi bi-images"></i> Gallery</h4>
+    <div class="row">
+      <div *ngFor="let image of film.Images" class="col-6 col-md-3 mb-3">
+        <img 
+          [src]="image" 
+          alt="{{ film.Title }} Image" 
+          class="img-fluid rounded shadow"
+        />
+      </div>
+    </div>
+  </div>
+</div>

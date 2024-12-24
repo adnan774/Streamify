@@ -1,0 +1,65 @@
+<div class="container my-4">
+  <!-- Search Bar -->
+  <div class="mb-4">
+    <app-search-bar
+      [films]="films"
+      (searchResults)="updateResults($event)"
+    ></app-search-bar>
+  </div>
+
+  <!-- Film List -->
+  <div class="row">
+    <div *ngFor="let film of filteredFilms" class="col-md-4 col-lg-3 mb-4">
+      <div class="card h-100 shadow-sm">
+        <!-- Poster -->
+        <img
+          [src]="film.Poster"
+          alt="{{ film.Title }} Poster"
+          class="card-img-top img-fluid"
+        />
+
+        <!-- Card Body -->
+        <div class="card-body">
+          <h5 class="card-title">{{ film.Title }}</h5>
+          <p class="card-text">
+            <i class="bi bi-film"></i> <strong> Genre:</strong> {{ film.Genre }}
+          </p>
+          <p class="card-text">
+            <i class="bi bi-star-fill text-warning"></i>
+            <strong> IMDb Rating:</strong> {{ film.imdbRating }}
+          </p>
+        </div>
+
+        <!-- Gallery -->
+        <div class="card-footer bg-light">
+          <h6 class="text-muted"><i class="bi bi-images"></i> Gallery:</h6>
+          <div class="d-flex flex-wrap gap-2">
+            <img
+              *ngFor="let image of film.Images"
+              [src]="image"
+              alt="{{ film.Title }} Image"
+              class="img-thumbnail rounded"
+              style="width: 50px; height: 50px; object-fit: cover;"
+            />
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="card-footer d-flex justify-content-between bg-white">
+          <button
+            class="btn btn-primary btn-sm"
+            [routerLink]="['/film', film.imdbID]"
+          >
+            <i class="bi bi-eye"></i> Details
+          </button>
+          <button
+            class="btn btn-outline-secondary btn-sm"
+            (click)="addToFavourites(film)"
+          >
+            <i class="bi bi-heart"></i> Add to Favourites
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

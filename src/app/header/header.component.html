@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <div class="container-fluid">
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold text-primary" href="#">
+      <i class="bi bi-film"></i> Movie DB
+    </a>
+    
+    <!-- Toggler Button for Mobile View -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <!-- Sign Up -->
+        <li class="nav-item" *ngIf="!us.isAuthencticated()">
+          <a class="nav-link text-secondary" routerLinkActive="active" routerLink="/signup">
+            <i class="bi bi-person-plus"></i> Sign Up
+          </a>
+        </li>
+        
+        <!-- Login -->
+        <li class="nav-item" *ngIf="!us.isAuthencticated()">
+          <a class="nav-link text-secondary" routerLinkActive="active" routerLink="/login">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+          </a>
+        </li>
+        
+        <!-- Films List -->
+        <li class="nav-item">
+          <a class="nav-link text-secondary" routerLinkActive="active" routerLink="/films">
+            <i class="bi bi-card-list"></i> Films List
+          </a>
+        </li>
+        
+        <!-- Add Film -->
+        <li class="nav-item" *ngIf="us.isAuthencticated()">
+          <a class="nav-link text-secondary" routerLinkActive="active" routerLink="/add">
+            <i class="bi bi-plus-square"></i> Add Film
+          </a>
+        </li>
+        
+        <!-- Favourites -->
+        <li class="nav-item" *ngIf="us.isAuthencticated()">
+          <a class="nav-link text-secondary" routerLinkActive="active" routerLink="/favourites">
+            <i class="bi bi-heart-fill"></i> Favourites
+          </a>
+        </li>
+        
+        <!-- Logout -->
+        <li class="nav-item" *ngIf="us.isAuthencticated()">
+          <a
+            class="nav-link text-danger"
+            routerLinkActive="active"
+            routerLink="/logout"
+            (click)="logout()"
+          >
+            <i class="bi bi-box-arrow-right"></i> Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

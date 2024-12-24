@@ -1,0 +1,252 @@
+<div class="container mt-5">
+    <h2 class="text-center text-primary mb-4">
+      <i class="bi bi-film"></i> Add a New Film
+    </h2>
+    <form (ngSubmit)="onSubmit()" class="p-4 border rounded shadow-sm bg-light">
+      <!-- Title -->
+      <div class="mb-3">
+        <label for="title" class="form-label fw-bold">
+          <i class="bi bi-pencil-fill"></i> Title
+        </label>
+        <input
+          type="text"
+          id="title"
+          class="form-control"
+          [(ngModel)]="newFilm.Title"
+          name="title"
+          placeholder="Enter film title"
+          required
+        />
+        <div class="invalid-feedback d-block" *ngIf="!newFilm.Title">
+            Title is required.
+          </div>
+      </div>
+  
+      <!-- Year -->
+      <div class="mb-3">
+        <label for="year" class="form-label fw-bold">
+          <i class="bi bi-calendar-fill"></i> Year
+        </label>
+        <input
+          type="text"
+          id="year"
+          class="form-control"
+          [(ngModel)]="newFilm.Year"
+          name="year"
+          placeholder="Enter release year"
+        />
+      </div>
+  
+      <!-- Rated -->
+      <div class="mb-3">
+        <label for="rated" class="form-label fw-bold">
+          <i class="bi bi-star-fill"></i> Rated
+        </label>
+        <input
+          type="text"
+          id="rated"
+          class="form-control"
+          [(ngModel)]="newFilm.Rated"
+          name="rated"
+          placeholder="Enter rating (e.g., PG-13, R)"
+        />
+      </div>
+  
+      <!-- Released -->
+      <div class="mb-3">
+        <label for="released" class="form-label fw-bold">
+          <i class="bi bi-clock-fill"></i> Released
+        </label>
+        <input
+          type="text"
+          id="released"
+          class="form-control"
+          [(ngModel)]="newFilm.Released"
+          name="released"
+          placeholder="Enter release date"
+        />
+      </div>
+  
+      <!-- Runtime -->
+      <div class="mb-3">
+        <label for="runtime" class="form-label fw-bold">
+          <i class="bi bi-hourglass-split"></i> Runtime
+        </label>
+        <input
+          type="text"
+          id="runtime"
+          class="form-control"
+          [(ngModel)]="newFilm.Runtime"
+          name="runtime"
+          placeholder="Enter runtime (e.g., 120 min)"
+        />
+      </div>
+  
+      <!-- Genre -->
+      <div class="mb-3">
+        <label for="genre" class="form-label fw-bold">
+          <i class="bi bi-tags-fill"></i> Genre
+        </label>
+        <input
+          type="text"
+          id="genre"
+          class="form-control"
+          [(ngModel)]="newFilm.Genre"
+          name="genre"
+          placeholder="Enter genre (e.g., Action, Drama)"
+          required
+        />
+        <div class="invalid-feedback d-block" *ngIf="!newFilm.Genre">
+            Genre is required.
+          </div>
+      </div>
+  
+      <!-- Director -->
+      <div class="mb-3">
+        <label for="director" class="form-label fw-bold">
+          <i class="bi bi-person-video2"></i> Director
+        </label>
+        <input
+          type="text"
+          id="director"
+          class="form-control"
+          [(ngModel)]="newFilm.Director"
+          name="director"
+          placeholder="Enter director's name"
+        />
+      </div>
+  
+      <!-- Writer -->
+      <div class="mb-3">
+        <label for="writer" class="form-label fw-bold">
+          <i class="bi bi-journal-richtext"></i> Writer
+        </label>
+        <input
+          type="text"
+          id="writer"
+          class="form-control"
+          [(ngModel)]="newFilm.Writer"
+          name="writer"
+          placeholder="Enter writer's name"
+        />
+      </div>
+  
+      <!-- Actors -->
+      <div class="mb-3">
+        <label for="actors" class="form-label fw-bold">
+          <i class="bi bi-people-fill"></i> Actors
+        </label>
+        <input
+          type="text"
+          id="actors"
+          class="form-control"
+          [(ngModel)]="newFilm.Actors"
+          name="actors"
+          placeholder="Enter main actors"
+        />
+      </div>
+  
+      <!-- Plot -->
+      <div class="mb-3">
+        <label for="plot" class="form-label fw-bold">
+          <i class="bi bi-card-text"></i> Plot
+        </label>
+        <textarea
+          id="plot"
+          class="form-control"
+          [(ngModel)]="newFilm.Plot"
+          name="plot"
+          rows="3"
+          placeholder="Enter a short summary of the plot"
+        ></textarea>
+      </div>
+  
+      <!-- Language -->
+      <div class="mb-3">
+        <label for="language" class="form-label fw-bold">
+          <i class="bi bi-translate"></i> Language
+        </label>
+        <input
+          type="text"
+          id="language"
+          class="form-control"
+          [(ngModel)]="newFilm.Language"
+          name="language"
+          placeholder="Enter language(s)"
+        />
+      </div>
+  
+      <!-- Country -->
+      <div class="mb-3">
+        <label for="country" class="form-label fw-bold">
+          <i class="bi bi-geo-alt-fill"></i> Country
+        </label>
+        <input
+          type="text"
+          id="country"
+          class="form-control"
+          [(ngModel)]="newFilm.Country"
+          name="country"
+          placeholder="Enter country of production"
+        />
+      </div>
+  
+      <!-- Awards -->
+      <div class="mb-3">
+        <label for="awards" class="form-label fw-bold">
+          <i class="bi bi-trophy-fill"></i> Awards
+        </label>
+        <input
+          type="text"
+          id="awards"
+          class="form-control"
+          [(ngModel)]="newFilm.Awards"
+          name="awards"
+          placeholder="Enter any awards won"
+        />
+      </div>
+  
+      <!-- Poster -->
+      <div class="mb-3">
+        <label for="poster" class="form-label fw-bold">
+          <i class="bi bi-image"></i> Poster URL
+        </label>
+        <input
+          type="url"
+          id="poster"
+          class="form-control"
+          [(ngModel)]="newFilm.Poster"
+          name="poster"
+          placeholder="Enter poster URL"
+        />
+      </div>
+  
+      <!-- IMDB Rating -->
+      <div class="mb-3">
+        <label for="imdbRating" class="form-label fw-bold">
+          <i class="bi bi-star-fill text-warning"></i> IMDB Rating
+        </label>
+        <input
+          type="number"
+          step="0.1"
+          id="imdbRating"
+          class="form-control"
+          [(ngModel)]="newFilm.imdbRating"
+          name="imdbRating"
+          placeholder="Enter IMDb rating"
+          required
+        />
+        <div class="invalid-feedback d-block" *ngIf="!newFilm.imdbRating">
+            IMDb rating is required.
+          </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary">
+          <i class="bi bi-check-circle-fill"></i> Add Film
+        </button>
+      </div>
+    </form>
+  </div>
+  
